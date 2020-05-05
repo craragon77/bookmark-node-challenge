@@ -5,6 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 const {NODE_ENV} = require('./config')
 const winston = require('winston');
+const {v4: uuid} = require('uuid');
 
 const app = express()
 console.log(process.env.API_TOKEN)
@@ -70,6 +71,41 @@ app.get('/bookmarks/:id', (req,res) => {
         return res.status(404).send('bookmark not found :(')
     }
     res.json(bookmark)
+})
+
+app.post('/bookmarks', (req,res) => {
+    const {title, url} = req.query
+    if(!title){
+        logger.error(`Title is required`);
+        return res.status(400).send('Invalid Data');
+    }
+    if(!url){
+        logger.error(`Content is required`);
+        return res.status(400).send('Invalid data');
+    }
+    const id = uuid();
+    const bookmark = {
+        id,
+        title,
+        url
+    };
+    bookmarks.push(bookmark)
+    logger.info(`Bookmark with id ${id} created!`)
+    res.status(201).location(`http://localhost:8000/list/${id}`).json({id})
+})
+
+app.delete('list/:id', (req,res) => {
+    const {id} = req.params;
+    const listIndex = lists.findIndex(li => li.id == id);
+
+    if(listIndex === -1){
+        logger.error(`List with id ${id} not found`);
+        return res.status(404).send('Not Found');
+    }
+
+    listIndex.splice(listIndex, 1);
+    logger.info(`List with id ${id} deleted`);
+    res.status(204).end()
 })
 
 app.use(function errorHandler(error, req, res, next) {
