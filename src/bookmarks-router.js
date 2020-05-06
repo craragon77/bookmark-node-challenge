@@ -67,7 +67,6 @@ bookmarkRouter
             logger.error(`List with id ${id} not found`);
             return res.status(404).send('Not Found');
         }
-        
         bookmarks.splice(bookmarkIndex, 1);
         logger.info(`List with id ${id} deleted`);
         res.status(204).end()
