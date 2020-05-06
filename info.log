@@ -11,3 +11,12 @@
 {"message":"Unauthorized request to path: /","level":"error"}
 {"message":"Unauthorized request to path: /","level":"error"}
 {"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Title is required","level":"error"}
+{"message":"Title is required","level":"error"}
+{"message":"Title is required","level":"error"}
+{"message":"Title is required","level":"error"}
+{"message":"Bookmark with id 9cb462de-8804-405b-90fd-d25c5878e616 created!","level":"info"}
+{"message":"Title is required","level":"error"}
+{"message":"Bookmark with id 131cde85-bf70-4f30-8cde-a096e3d8e563 created!","level":"info"}
+{"message":"Bookmark with id 9d8c7a84-348c-4552-8ed3-674693650998 created!","level":"info"}
+{"message":"List with id 1 deleted","level":"info"}
