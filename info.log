@@ -20,3 +20,6 @@
 {"message":"Bookmark with id 131cde85-bf70-4f30-8cde-a096e3d8e563 created!","level":"info"}
 {"message":"Bookmark with id 9d8c7a84-348c-4552-8ed3-674693650998 created!","level":"info"}
 {"message":"List with id 1 deleted","level":"info"}
+{"message":"Unauthorized request to path: /bookmarks/","level":"error"}
+{"message":"Bookmark with id 4f734bb6-7555-45a0-9e05-10a29e5b5ec8 created!","level":"info"}
+{"message":"Bookmark with id 62307747-ebc0-45bf-887f-585140356418 created!","level":"info"}

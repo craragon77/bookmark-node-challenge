@@ -8,11 +8,13 @@ const bookmarks = [{
     id: 1,
     title: 'Appalachian Trail Website',
     url: 'https://appalachiantrail.org/',
+    description: 'one of the finest trails on the East Coast',
     rating: 5
 }, {
     id: 2,
     title: 'Pacific Crest Trail website',
     url: 'https://www.pcta.org/',
+    description: 'one of the finest trails on the East Coast',
     rating: 5
 }]
 
@@ -22,7 +24,7 @@ bookmarkRouter
         res.json(bookmarks)
         })
     .post((req,res) => {
-        const {title, url, rating} = req.query
+        const {title, url, rating, description} = req.query
         if(!title){
             logger.error(`Title is required`);
             return res.status(400).send('Invalid title');
@@ -30,6 +32,10 @@ bookmarkRouter
         if(!url){
             logger.error(`Content is required`);
             return res.status(400).send('Invalid url');
+        }
+        if(!description){
+            logger.error(`Description is required`)
+            return res.status(400).send('Invalid description')
         }
         if(!rating){
             logger.error(`Rating is Required`)
@@ -40,6 +46,7 @@ bookmarkRouter
             id,
             title,
             url,
+            description,
             rating
         };
         bookmarks.push(bookmark)
