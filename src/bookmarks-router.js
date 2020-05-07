@@ -23,7 +23,7 @@ bookmarkRouter
     .get((req,res) => {
         res.json(bookmarks)
         })
-    .post((req,res) => {
+    .post(bodyParser,(req,res) => {
         const {title, url, rating, description} = req.query
         if(!title){
             logger.error(`Title is required`);
