@@ -24,7 +24,7 @@ bookmarkRouter
         res.json(bookmarks)
         })
     .post(bodyParser,(req,res) => {
-        const {title, url, rating, description} = req.query
+        const {title, url, rating, description} = req.body
         if(!title){
             logger.error(`Title is required`);
             return res.status(400).send('Invalid title');
